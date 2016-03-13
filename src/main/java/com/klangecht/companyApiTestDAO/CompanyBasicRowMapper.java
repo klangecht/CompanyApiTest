@@ -18,11 +18,8 @@ public class CompanyBasicRowMapper implements RowMapper<CompanyContent> {
 		company.setCountry(rs.getString("country"));
 		company.setPhone(rs.getString("phone"));
 		company.setEmail(rs.getString("email"));
-		//Array owners = rs.getArray("is_nullable");
-		//company.setOwners((String[])owners.getArray());
 		company.setContent(rs.getString("content"));
 		
 		return company;
 	}
-
 }
