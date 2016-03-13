@@ -3,10 +3,14 @@
 	xmlns="http://java.sun.com/xml/ns/javaee"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	version="2.5">
-	<description>Klangecht Database</description>
+	<description>Company-API Database</description>
 	<resource-ref>
 		<description>DB Connection</description>
+		
 		<res-ref-name>jdbc/viaBill</res-ref-name>
+		 <!-- 
+		<res-ref-name>us-cdbr-iron-east-03.cleardb.net</res-ref-name>
+		-->
 		<res-type>javax.sql.DataSource</res-type>
 		<res-auth>Container</res-auth>
 	</resource-ref>
