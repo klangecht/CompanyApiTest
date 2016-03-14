@@ -1,7 +1,6 @@
 package com.klangecht.companyApiTestDAO;
 
 import java.util.List;
-import java.util.Set;
 
 import javax.sql.DataSource;
 
