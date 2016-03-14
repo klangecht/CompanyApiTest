@@ -1,0 +1,27 @@
+<p>
+    All Companies
+</p>
+<p>
+    <a href="" ng-click="createNewCompany()">
+        Create new company
+    </a>
+</p>
+<table class="workout">
+    <tr ng-repeat="entry in companies">
+        <div>
+            <td>
+                Name: {{ entry.name }}
+            </td>
+            <td>
+                <a href="" ng-click="showDetails(entry)">
+                    Show Details
+                </a>
+            </td>
+            <td>
+                <a href="" ng-click="modifyCompany(entry)">
+                    Modify Company
+                </a>
+            </td>
+        </div>
+    </tr>
+</table>

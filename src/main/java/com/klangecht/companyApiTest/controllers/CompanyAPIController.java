@@ -17,9 +17,9 @@ import com.klangecht.companyApiTestDAO.CompanyContent;
 import com.klangecht.companyApiTestDAO.OwnerContent;
 
 @Controller
-public class ViaBillController {
+public class CompanyAPIController {
 
-	private static final Logger logger = LoggerFactory.getLogger(ViaBillController.class);
+	private static final Logger logger = LoggerFactory.getLogger(CompanyAPIController.class);
 	private ContentService contentService;
 
 	@Autowired
@@ -95,8 +95,7 @@ public class ViaBillController {
 			ow[i] = ownerList.get(i).getName();
 	
 		newCompany.setId(id);
-		//TODO:!!!
-		//newCompany.setOwners(ow);
+		//newCompany.setOwners(ow[]);
 		
 		return new Gson().toJson(newCompany);
 	}
@@ -115,8 +114,6 @@ public class ViaBillController {
 			@RequestParam(value = "phone", required = false) String phone,
 			@RequestParam(value = "owners", required = false) String[] owners,
 			@RequestParam(value = "content", required = false) String content) {
-
-		logger.info("Update Company");
 
 		// get id
 		if (contentService.getCompanyDetails(name).isEmpty()) {
@@ -144,9 +141,7 @@ public class ViaBillController {
 		if (phone != null) {
 			companyToModify.setPhone(phone);
 		}
-		//if (owners != null) {
-		// companyToModify.setOwners(owners.toString());
-		// }
+	
 		if (content != null) {
 			companyToModify.setContent(content);
 		}
@@ -165,7 +160,6 @@ public class ViaBillController {
 	public String addOwner(@RequestParam(value = "companyName") String companyName,
 			@RequestParam(value = "owners", required = false) String[] owners) {
 
-		logger.info("Add owner");
 		List<CompanyContent> companies = contentService.getCompanyDetails(companyName);
 		List<OwnerContent> currentOwners = contentService.getOwnersByCompany(companyName);
 		if(owners != null){

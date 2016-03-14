@@ -1,0 +1,53 @@
+<a href="" ng-click="showOverview()">
+    Overview
+</a>
+<p>
+    Company: {{currentCompany.name}} - modify Data
+</p>
+<div class="form">
+    <form name="companyForm">
+        New Name
+        <br/>
+        <input type="text" ng-model="currentCompany.name" required />
+        <br/>
+        <br/>
+        Address
+        <br/>
+        <input type="text" ng-model="currentCompany.address" required />
+        <br/>
+        <br/>
+        City
+        <br/>
+        <input type="text" ng-model="currentCompany.city" required />
+         <br/>
+        <br/>
+        Country
+        <br/>
+        <input type="text" ng-model="currentCompany.country" required />
+        <br/>
+        <br/>
+        Owners (separate by kommata)
+        <br/>
+        <input type="text" ng-model="currentCompany.owners" required />
+        <br/>
+        <br/>
+        Content
+        <br/>
+        <input type="text" ng-model="currentCompany.content" required />
+        <br/>
+        <br/>
+        Phone Number
+        <br/>
+        <input type="text" ng-model="currentCompany.phone" />
+        <br/>
+        <br/>
+        Email
+        <br/>
+        <input type="email" ng-model="currentCompany.email" />
+        <br/>
+        <br/>
+        <button type="submit" ng-click="submitChanges(currentCompany, 'test')" ng-disabled="companyForm.$invalid">
+            Submit
+        </button>
+    </form>
+</div>
