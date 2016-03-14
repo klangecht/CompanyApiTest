@@ -29,7 +29,7 @@ app.service('userService', function() {
     this.temp = "";
 });
 app.controller('mainController', function($scope, $http, $location, userService) {
-    $http.get("http://company-api-test.cfapps.io/company").then(function(response) {
+    $http.get("http://company-api-test.cfapps.io/api/company").then(function(response) {
         $scope.companies = response.data;
         userService.allCompanies = $scope.companies;
     });
@@ -69,7 +69,7 @@ app.controller('newCompanyController', function($scope, $http, $location, userSe
         };
         $http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded;charset=utf-8";
         var payload = $.param(company);
-        $http.post("http://company-api-test.cfapps.io/company/new", payload).success(function(data, status, headers, config) {
+        $http.post("http://company-api-test.cfapps.io/api/company/new", payload).success(function(data, status, headers, config) {
             $location.path('/');
         }).error(function(data, status, headers, config) {
             console.log("no success");
@@ -99,7 +99,7 @@ app.controller('modifyCompanyController', function($scope, $http, $location, use
         company.name = $scope.companyName;
         var payload = $.param(company);
         //update all except owners
-        $http.post("http://company-api-test.cfapps.io/company/update", payload).success(function(data, status, headers, config) {
+        $http.post("http://company-api-test.cfapps.io/api/company/update", payload).success(function(data, status, headers, config) {
             $location.path('/');
         }).error(function(data, status, headers, config) {
             //error management
@@ -108,7 +108,7 @@ app.controller('modifyCompanyController', function($scope, $http, $location, use
         //update owners with second api call
         payload = "companyName=" + company.name + "&owners=" + company.owners;
         
-        $http.post("http://company-api-test.cfapps.io/company/owners/add", payload).success(function(data, status, headers, config) {
+        $http.post("http://company-api-test.cfapps.io/api/company/owners/add", payload).success(function(data, status, headers, config) {
             $location.path('/');
             console.log("owners update success");
         }).error(function(data, status, headers, config) {
